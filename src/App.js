@@ -2,7 +2,7 @@ import logo from './logomascotas.png';
 import './App.css';
 import NavBar from'./components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-
+import ItemList from './components/ItemList/ItemList';
 
 
 function App() {
@@ -17,7 +17,9 @@ function App() {
       <ItemListContainer>
         
       </ItemListContainer>
-     
+      <ItemList>
+        
+      </ItemList>
       </body>
     </div>
   );
