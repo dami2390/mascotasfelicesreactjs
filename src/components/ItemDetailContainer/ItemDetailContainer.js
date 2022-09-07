@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import ItemList from '../ItemList/ItemList'
 
 
 function ItemDetailContainer() {
@@ -8,7 +9,8 @@ function ItemDetailContainer() {
     return (
         <>
             <div >
-                <ItemDetail/>
+                <ItemList/>
+               {/*  <ItemDetail/> */}
             </div>
         </>
     )

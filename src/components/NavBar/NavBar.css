@@ -1,0 +1,21 @@
+.classActive {
+    color: rgb(225, 99, 14);
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.classInactive {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.fondo {
+    background-color: #1d998b;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 25px;
+}

@@ -1,18 +1,20 @@
 import {useState, useEffect} from 'react'
 import getFetch from '../../../src/helper/helper'
+import {useParams} from 'react-router-dom'
 
 const ItemDetail = () => {
    
+    const { alimentoId } = useParams();
 
     const [data, setData] = useState({})
 
     useEffect(()=> {
         getFetch
         .then(response => {
-            setData(response.find(prod => prod.id === 1))
+            setData(response.find(prod => prod.id === alimentoId));
            
         })
-    }, [])
+    }, [alimentoId])
 
     console.log(data)
         return (

@@ -21,7 +21,7 @@
     setTimeout(() => {
         resolve(alimentos)
         reject(err => console.log(err))
-    }, 3000)
+    }, 2000)
 })
 
 export default getFetch
