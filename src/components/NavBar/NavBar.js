@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './NavBar.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Cart from './CartWidget';
+import Carrito from './CartWidget';
 import logo from '../../../src/logomascotas.png';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -32,9 +32,9 @@ function NavBar() {
             <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/categoria/accesorio">Accesorios y Juguetes </NavLink>
             <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/">Contacto </NavLink>
           </Nav>
-          
-          <Cart/>
-        
+          <Link to="/cart">
+          <Carrito/>
+          </Link>
         </Navbar.Collapse>
        
       </Container>

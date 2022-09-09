@@ -1,10 +1,10 @@
 import { TbShoppingCart } from 'react-icons/tb';
 import './CartWidget.css'
 
-function Cart () {
+function Carrito () {
     return (
         <TbShoppingCart/>
     )
 } 
 
-export default Cart
+export default Carrito
