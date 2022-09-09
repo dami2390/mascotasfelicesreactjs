@@ -27,9 +27,9 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/home">Inicio </NavLink>
-            <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/category/alimentos">Alimentos </NavLink>
-            <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/category/accesorios">Accesorios y Juguetes </NavLink>
+            <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/">Inicio </NavLink>
+            <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/categoria/alimento">Alimentos </NavLink>
+            <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/categoria/accesorio">Accesorios y Juguetes </NavLink>
             <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/">Contacto </NavLink>
           </Nav>
           
@@ -45,11 +45,3 @@ function NavBar() {
 }
 
 export default NavBar;
-{/* <Nav.Link href="#home">Inicio</Nav.Link>
-            
-            <NavDropdown title="Comprar" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Alimentos</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Accesorios y Juguetes</NavDropdown.Item>
-                          
-            </NavDropdown>
-            <Nav.Link href="#link">Contacto</Nav.Link> */}

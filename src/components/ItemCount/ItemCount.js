@@ -36,6 +36,7 @@ function ItemCount ({stock, initial, onAdd}) {
               {" "}
               <AddIcon fontSize="small" />
             </Button>
+            <Button onClick={() =>{onAdd(itemCount)}}>Añadir al Carrito</Button>
           </ButtonGroup>
         </div>
       </div>

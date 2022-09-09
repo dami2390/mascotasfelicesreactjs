@@ -3,9 +3,9 @@ import { Card } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
 import {Link } from 'react-router-dom'
 
-const Cards = (props) => {
+const Cards = ({item}) => {
     
-    const { id, name, img, price } = props;
+    const { id, name, img, price } = item;
 
     return (
         

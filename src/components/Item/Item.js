@@ -1,59 +1,26 @@
-import { useEffect } from 'react'
-import { useState } from 'react'
-import Cards from '../Cards'
+import { Card } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import {Link } from 'react-router-dom'
 
-const Item = () => {
+const Item = ({item}) => {
     
-    const alimentos = [
-        {
-            "id": 1,
-            "name": "Old prince 15 kg",
-            "price": "1500",
-            "img": "https://dami2390.github.io/mascotasfelices/img/alimento1.png",
-        },
-        {
-            "id": 2,
-            "name": "Maintenance Criador 22 kg",
-            "price": "2500",
-            "img": "https://dami2390.github.io/mascotasfelices/img/alimento2.png",
-        }
-    ];
-
-    const [alimento, setAlimento] = useState([]);
-
-    const consulta = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(alimentos);
-            }, 2000);
-        });
-    }
-    
-    useEffect(() => {
-        const resultadoConsulta = async() => {
-            try {
-                const cardAlimentos = await consulta();
-                setAlimento(cardAlimentos);
-            } catch (error) {
-                console.log("Error!")
-            }
-        }
-        resultadoConsulta();
-    })
+    const { id, name, img, price } = item;
 
     return (
+        
         <>
-            <div>
-                {alimento.map((alimento, i) => {
-                    return (
-                        <div key={i}>
-                            <Cards key={i} name={alimento.name} price={alimento.price} img={alimento.img}/>
-                        </div>
-                    )
-                })}
-            </div>
+            <Card style={{ width: '18rem' }} key={id}>
+                <Card.Img variant="top" src={img} />
+                    <Card.Body>
+                    <Card.Title>{name}</Card.Title>
+                        <Card.Text>{price}</Card.Text>
+                        <Link to={`/item/${id}`}>
+                            <Button variant="primary">Información</Button>
+                        </Link>
+                    </Card.Body>
+            </Card>        
         </>
-    )
+    );
 }
 
 export default Item

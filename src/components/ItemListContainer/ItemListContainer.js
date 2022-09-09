@@ -1,20 +1,40 @@
-import React from "react";
-import ItemCount from '../ItemCount/ItemCount';
+import { useEffect, useState } from "react";
+import './ItemListContainer.css';
+import arregloProductos from "../../helper/helper";
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
 
-export default function ItemListContainer(props) {
-    return (
-        
-        <div>
-            
-            <h1>{props.Texto}</h1>
-            <h2>{props.Precio}</h2>
-            <ItemCount stock={5} initial={1}/>
+function ItemListContainer () {
+    const {tipoProducto} = useParams();
+    console.log(tipoProducto)
+    const [productos, setProductos] = useState([]);
+
+    const promesa = new Promise((resolve, reject)=>{
+        setTimeout(() => {
+            resolve(arregloProductos);
+        }, 2000);
+    }, [tipoProducto])
+
+    useEffect(()=>{
+        promesa.then(resultado=>{
+            if(!tipoProducto){
+                setProductos(resultado)
+            } else{
+                const nuevaLista = resultado.filter(item=>item.categoria === tipoProducto);
+               
+                setProductos(nuevaLista)
+            }
+        })
+    },)
+
+    console.log('productos', productos)
+    return(
+        <div className="pending">
+            <p>Item list container</p>
+            <ItemList items={productos}/>
         </div>
-    );
+    )
 }
 
-/* ItemListContainer.defaultProps = {
-    Texto: "Producto 1",
-    Precio: 12,
-} */
+export default ItemListContainer
