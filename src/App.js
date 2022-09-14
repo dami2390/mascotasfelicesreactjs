@@ -7,40 +7,30 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Item from './components/Item/Item';
 import ItemDetail from './components/ItemDetail/ItemDetail';
-import Cart from './components/Cart/Cart';
+import CartContainer from './components/Cart/CartContainer';
+import { CartProvider} from '../src/context/CartContext'
 
 function App() {
   return (
-    <BrowserRouter>
-    <>
-     <NavBar />
-      <Routes>
-        <Route path='/' element={<ItemListContainer/>}/>
-        <Route path='/categoria/:tipoProducto' element={<ItemListContainer/>}/>
-        <Route path='/item/:alimentoId' element={<ItemDetailContainer/>}/> 
-        <Route path='/cart' element={<Cart/>}/>     
-        <Route path='*' element={<ItemListContainer />}/>     
+    <CartProvider>
+      <BrowserRouter>
+      <>
+      <NavBar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer/>}/>
+          <Route path='/categoria/:tipoProducto' element={<ItemListContainer/>}/>
+          <Route path='/item/:alimentoId' element={<ItemDetailContainer/>}/> 
+          <Route path='/cart' element={<CartContainer/>}/>     
+          <Route path='*' element={<ItemListContainer />}/>     
+                  
+            
                 
-          
-              
-      </Routes>
-  
-    </>
-    </BrowserRouter>
+        </Routes>
+    
+      </>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
 export default App;
-/* 
-<img src={logo} className="App-logo" alt="logo" />
-<p>
-  Edit <code>src/App.js</code> and save to reload.
-</p>
-<a
-  className="App-link"
-  href="https://reactjs.org"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Learn React
-</a> */

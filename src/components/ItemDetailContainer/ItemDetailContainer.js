@@ -39,7 +39,7 @@ function ItemDetailContainer() {
         <>
             <div >
                 <h1> Detalle del producto: </h1>
-                <ItemDetail perro= {data}/>
+                <ItemDetail item= {data}/>
                {/*  <ItemDetail/> */}
             </div>
         </>
