@@ -14,18 +14,20 @@ export const CartProvider = ({children})=> {
         }
     }
 
-    const addProduct = (product) => {
+    const addProduct = (product, qty) => {
         const newList = [...productCartList];
-        newList.push(product);
-        setProductCartList(newList);
+        
 
         const inCartObj = isInCart(product.id);
         if(inCartObj.exists) {
             const productListCopy = [...productCartList];
-            productListCopy[inCartObj.index].cantidad = productListCopy[inCartObj.index].cantidad + product.cantidad;
+            productListCopy[inCartObj.index].cantidad = productListCopy[inCartObj.index].cantidad + qty;
+            productListCopy[inCartObj.index].totalPrice = productListCopy[inCartObj.index].cantidad * productListCopy[inCartObj.index].price;
             setProductCartList(productListCopy)
         }else{
-            const newList = [...productCartList, product];
+            const newProduct={...product, cantidad:qty, totalPrice:qty*product.price}
+            const newList = [...productCartList];
+            newList.push(newProduct);
             setProductCartList(newList);
         }
     }
@@ -35,11 +37,20 @@ export const CartProvider = ({children})=> {
         const newArray = copyArray.filter(elm=>elm.id !== idProduct);
         setProductCartList(newArray);
     }
+    const clearProductCartList=()=>{
+        setProductCartList([])
+    }
+
+    const getTotalProducts = ()=>{
+        const totalProducts = productCartList.reduce((acc,item)=>acc + item.cantidad,0);
+        return totalProducts;
+    }
+
 
 
     return (
 
-        <CartContext.Provider value={{productCartList, addProduct, deleteProduct }}>
+        <CartContext.Provider value={{productCartList, addProduct, deleteProduct, clearProductCartList, getTotalProducts }}>
             {children}
         </CartContext.Provider>
     )
