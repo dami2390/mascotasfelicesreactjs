@@ -3,6 +3,8 @@ import './ItemListContainer.css';
 import arregloProductos from "../../helper/helper";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import {collection, getDocs, query, where } from "firebase/firestore"
+import {db} from "../../helper/firebase"
 
 
 function ItemListContainer () {
@@ -10,25 +12,34 @@ function ItemListContainer () {
     console.log(tipoProducto)
     const [productos, setProductos] = useState([]);
 
-    const promesa = new Promise((resolve, reject)=>{
-        setTimeout(() => {
-            resolve(arregloProductos);
-        }, 2000);
-    }, [tipoProducto])
-
     useEffect(()=>{
-        promesa.then(resultado=>{
-            if(!tipoProducto){
-                setProductos(resultado)
-            } else{
-                const nuevaLista = resultado.filter(item=>item.categoria === tipoProducto);
+        const getData = async () => {
+            try {
+                let queryRef = ""
+                if(!tipoProducto){
+                    queryRef = collection(db, "items")
+                } else{
+                    queryRef = query(collection(db, "items"),where("categoria", "==", tipoProducto));
+                }
                
-                setProductos(nuevaLista)
+                const response = await getDocs(queryRef); //el getDocs ya retorna una promise. No es necesario armarla
+                const datos = response.docs.map(doc =>{
+                    const newDoc = {
+                        ...doc.data(),
+                        id:doc.id
+                    }
+                    return newDoc;
+                });
+                setProductos(datos)
+            } catch (error) {
+                console.log(error);
             }
-        })
-    },)
-
-    console.log('productos', productos)
+          
+        }
+        getData();
+    },[tipoProducto])
+    console.log('productos', productos) 
+       
     return(
         <div className="pending">
             <p>Item list container</p>

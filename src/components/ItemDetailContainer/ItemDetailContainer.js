@@ -1,8 +1,9 @@
 import React from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import {useState, useEffect} from 'react'
-import arregloProductos from '../../helper/helper'
 import {useParams} from 'react-router-dom'
+import {doc, getDoc} from "firebase/firestore"
+import {db} from '../../helper/firebase'
 
 
 function ItemDetailContainer() {
@@ -11,27 +12,17 @@ function ItemDetailContainer() {
 
     const [data, setData] = useState([])
 
-    const obtenerProductos = () => {
-        return new Promise((resolve, reject)=> {
-            setTimeout(()=>{
-                resolve(arregloProductos)
-                reject('Error')
-                console.log(arregloProductos)
-            },1000 );
-        })
-    }
-
     useEffect(()=> {
-        const prodAsync = async () => {
-            try {
-                const prodSel = await obtenerProductos();
-                setData(prodSel.find(prod => prod.id == alimentoId));
+        const queryRef = doc(db, "items", alimentoId)
+        getDoc(queryRef).then(response=>{
+            const newDoc = {
+                ...response.data(),
+                id: response.id
             }
-            catch (err) {
-                console.log("Error 404")
-            }
-        }
-        prodAsync();
+            console.log(newDoc)
+            setData(newDoc);
+        }).catch(error=>console.log(error))
+       
     }, [alimentoId])
 
     console.log(data)
@@ -40,7 +31,7 @@ function ItemDetailContainer() {
             <div >
                 <h1> Detalle del producto: </h1>
                 <ItemDetail item= {data}/>
-               {/*  <ItemDetail/> */}
+    
             </div>
         </>
     )
