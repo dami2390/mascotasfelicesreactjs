@@ -2,7 +2,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './NavBar.css';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Carrito from './CartWidget';
 import logo from '../../../src/logomascotas.png';
 import { Link, NavLink } from 'react-router-dom';
