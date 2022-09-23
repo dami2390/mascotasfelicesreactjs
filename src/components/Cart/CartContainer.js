@@ -29,12 +29,12 @@ export const CartContainer = () => {
   }
 
   const updateOrder = ()=>{
-    const queryRef = doc(db,"items","QPecYuDxkskZBr3uoVjI");
+    const queryRef = doc(db,"items","NzDR8DGcyTNdckE4CtC2");
     updateDoc(queryRef, {
       categoria: "accesorio",
-      img: "https://firebasestorage.googleapis.com/v0/b/react-41590.appspot.com/o/zapato-hombre.jpg?alt=media&token=36321466-cb68-445e-858a-8772114f12e6",
-      price: 90,
-      name:"zapatos hombre"
+      img: "https://dami2390.github.io/mascotasfelices/img/accesorio2.png",
+      price: 3000,
+      name:"Juguete para Gato - Pluma"
     }).then(()=>console.log("producto actualizado"))
   }
 
