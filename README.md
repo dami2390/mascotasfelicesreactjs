@@ -1,5 +1,6 @@
 # Desarrollador: Damian Ferrara
-# E-commerce Pet-Shop: Mascotas Felices ![image](https://github.com/dami2390/mascotasfelicesreactjs/blob/master/src/logomascotas.png)
+![image](https://github.com/dami2390/mascotasfelicesreactjs/blob/master/src/logomascotas.png)
+# E-commerce Pet-Shop: Mascotas Felices 
 Mascotas Felices es una tienda online de mascotas, que se centraliza en dos tipos de productos: Alimentos y Accesorios para mascotas.
 
 # Gif de Navegación
