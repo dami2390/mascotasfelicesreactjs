@@ -3,7 +3,7 @@
 Mascotas Felices es una tienda online de mascotas, que se centraliza en dos tipos de productos: Alimentos y Accesorios para mascotas.
 
 # Gif de Navegación
-![image](https://https://github.com/dami2390/mascotasfelicesreactjs/src/gifmascotas.gif)
+![image](https://github.com/dami2390/mascotasfelicesreactjs/src/gifmascotas.gif)
 
 # Dependencias
 ###  install react-bootstrap bootstrap
