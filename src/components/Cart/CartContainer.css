@@ -1,0 +1,60 @@
+.carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carritoCard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    font-weight: 600;
+    padding: 14px;
+    background: #8d9e9c;
+    border-radius: 14px;
+    width: 60%;
+    box-shadow: 0px 1px 10px rgb(0 0 0);
+}
+
+.img-producto{
+    width: 142px;
+    height: 142px;
+    border-radius: 15px;
+}
+
+
+h3{
+    text-decoration: none;
+    margin: 15px;
+    color: rgb(234, 127, 127);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 31rem;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #1d998b;
+    box-shadow: 0px 1px 10px rgb(0 0 0);
+}
+
+form input {
+    
+
+    margin: 5px;
+    border-radius: 5px;
+    width: 90%
+}
+
+.btn-propio {
+    width: 40% !important;
+}
+
+.btn {
+    background-color: rgb(225, 99, 14) !important;
+    border-color: rgb(225, 99, 14) !important;
+}
+

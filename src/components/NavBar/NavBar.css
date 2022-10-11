@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Titan+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Titan One', cursive;
+    letter-spacing: 1px;
+}
+
 .classActive {
     color: rgb(225, 99, 14);
     text-decoration: none;
@@ -16,6 +25,10 @@
 }
 
 .titulo {
-    font-weight: bold;
-    font-size: 25px;
+    font-family: 'Titan One', cursive;
+    
+    font-size: 30px;
+}
+.navbar-collapse {
+    margin-left: 70px;
 }

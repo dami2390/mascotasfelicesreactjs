@@ -1,10 +1,13 @@
 import React from 'react';
+import Button from "@material-ui/core/Button";
 import { useState} from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { CartItem } from '../CartItem/CartItem';
 import { db } from '../../helper/firebase';
 import {collection, addDoc, doc, updateDoc} from "firebase/firestore";
+import "./CartContainer.css";
+
 
 export const CartContainer = () => {
   const {productCartList, clearProductCartList, getTotalPrice} = useContext(CartContext);
@@ -40,27 +43,27 @@ export const CartContainer = () => {
 
   return (
     <div>
-    <p>CartContainer</p>
-    <div>
+    <p>¡Finalizá tu compra!</p>
+    <div className="carrito">
       {
         productCartList.length>0 ?
         <>
           {
             productCartList.map(item=>(
-              <CartItem key={item.id} item={item}/>
+              <CartItem  key={item.id} item={item}/>
             ))
           }
           <hr/>
           
-          <button onClick={clearProductCartList}>Vaciar el carrito</button>
-          <p>Precio total: {getTotalPrice()}</p>
+          <button className="btn btn-primary" onClick={clearProductCartList}>Vaciar el carrito</button>
+          <p>Precio total: $ {getTotalPrice()}</p>
             <form onSubmit={sendOrder}>
-              <input type="text" placeholder='nombre'/>
-              <input type="text" placeholder='telefono'/>
-              <input type="email" placeholder='email'/>
-              <button type='submit'>enviar orden</button>
+              <input type="text" placeholder='Tu nombre'/>
+              <input type="text" placeholder='Tu telefono'/>
+              <input type="email" placeholder='Tu e-mail'/>
+              <button className="btn btn-primary btn-propio" type='submit'>Enviar orden</button>
             </form>
-            <button onClick={updateOrder}>actualizar</button>
+           {/*  <button className="btn btn-primary" onClick={updateOrder}>Actualizar</button> */}
         </>
         :
         <p>No has agregado productos</p>

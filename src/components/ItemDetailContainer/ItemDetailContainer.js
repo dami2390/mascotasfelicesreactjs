@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {doc, getDoc} from "firebase/firestore"
 import {db} from '../../helper/firebase'
+import '../ItemDetail/ItemDetail.css'
 
 
 function ItemDetailContainer() {
@@ -28,8 +29,8 @@ function ItemDetailContainer() {
     console.log(data)
     return (
         <>
-            <div >
-                <h1> Detalle del producto: </h1>
+            <div className="ItemDetailContainer">
+                
                 <ItemDetail item= {data}/>
     
             </div>

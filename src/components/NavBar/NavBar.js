@@ -29,7 +29,7 @@ function NavBar() {
             <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/">Inicio </NavLink>
             <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/categoria/alimento">Alimentos </NavLink>
             <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/categoria/accesorio">Accesorios y Juguetes </NavLink>
-            <NavLink className={({isActive}) => isActive ? "classActive" : "classInactive"} to="/">Contacto </NavLink>
+            
           </Nav>
           <Link to="/cart">
           <Carrito/>

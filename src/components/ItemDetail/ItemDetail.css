@@ -1,0 +1,35 @@
+.ItemDetailContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.detailCard{
+    display: flex;
+    margin: 10px;
+    background-color:#8d9e9c;
+    padding: 5px;
+    width: 40rem;
+    justify-content: center;
+
+    margin-top: 5rem;
+    padding: 2rem;
+    border-radius: 15px;
+}
+.divImg{
+    
+    display: flex;
+    justify-content: center;
+}
+.imgDetail{
+
+    width: 200px;
+    border-radius: 15px;
+
+}
+.divDescripcion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 16rem;
+}

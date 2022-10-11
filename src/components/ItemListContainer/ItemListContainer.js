@@ -4,6 +4,7 @@ import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import {collection, getDocs, query, where } from "firebase/firestore"
 import {db} from "../../helper/firebase"
+import "./ItemListContainer.css"
 
 
 function ItemListContainer () {
@@ -40,8 +41,8 @@ function ItemListContainer () {
     console.log('productos', productos) 
        
     return(
-        <div className="pending">
-            <p>Item list container</p>
+        <div className="ItemListContainer">
+            <p>¡Los mejores productos para tus mascotas!</p>
             <ItemList items={productos}/>
         </div>
     )

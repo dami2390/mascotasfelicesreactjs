@@ -9,13 +9,13 @@ const Item = ({item}) => {
     return (
         
         <>
-            <Card style={{ width: '18rem' }} key={id}>
+            <Card style={{ width: '18rem', margin: '10px' ,display: "flex", justifyContent: "center", alignItems: "center"}} key={id}>
                 <Card.Img variant="top" src={img} />
                     <Card.Body>
                     <Card.Title>{name}</Card.Title>
-                        <Card.Text>{price}</Card.Text>
+                        <Card.Text>$ {price}</Card.Text>
                         <Link to={`/item/${id}`}>
-                            <Button variant="primary">Información</Button>
+                            <Button variant="primary">Detalles</Button>
                         </Link>
                     </Card.Body>
             </Card>        
